@@ -129,7 +129,7 @@
 	phy-mode = "rgmii-id";
 	phy-handle = <&phy0>;
 	renesas,no-ether-link;
-	status = "okay";
+	status = "disabled";
 
 	phy0: ethernet-phy@0 {
 		rxc-skew-ps = <1500>;
@@ -138,6 +138,25 @@
 		interrupts = <23 IRQ_TYPE_LEVEL_LOW>;
 	};
 };
+
+&avb {
+        pinctrl-0 = <&avb_pins>;
+        pinctrl-names = "default";
+
+        renesas,no-ether-link;
+        phy-handle = <&phy0>;
+        phy-mode = "rgmii-id";
+        status = "okay";
+
+        phy0: ethernet-phy@0 {
+                rxc-skew-ps = <1500>;
+                reg = <0>;
+                interrupt-parent = <&gpio1>;
+                interrupts = <17 IRQ_TYPE_LEVEL_LOW>;
+                reset-gpios = <&gpio1 16 GPIO_ACTIVE_LOW>;
+        };
+};
+
 
 &i2c0 {
 	pinctrl-0 = <&i2c0_pins>;
