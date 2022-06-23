@@ -144,11 +144,11 @@
     pinctrl-names = "default";
 
     renesas,no-ether-link;
-    phy-handle = <&phy0>;
+    phy-handle = <&phy1>;
     phy-mode = "rgmii-id";
     status = "okay";
 
-    phy0: ethernet-phy@0 {
+    phy1: ethernet-phy@0 {
        	rxc-skew-ps = <1500>;
        	reg = <0>;
        	interrupt-parent = <&gpio1>;
