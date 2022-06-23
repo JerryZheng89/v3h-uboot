@@ -266,6 +266,11 @@
 			 "gether_txcrefclk", "gether_txcrefclk_mega";
 		function = "gether";
 	};
+	
+	avb_pins: avb0 {
+        groups = "avb0_mdio", "avb0_rgmii", "avb0_txcrefclk";
+        function = "avb0";	
+	};
 
 	i2c0_pins: i2c0 {
 		groups = "i2c0";
