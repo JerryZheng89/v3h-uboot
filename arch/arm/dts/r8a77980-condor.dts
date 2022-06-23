@@ -8,6 +8,7 @@
 
 /dts-v1/;
 #include "r8a77980.dtsi"
+#include <dt-bindings/gpio/gpio.h>
 
 / {
 	model = "Renesas Condor board based on r8a77980";
@@ -15,7 +16,7 @@
 
 	aliases {
 		serial0 = &scif0;
-		ethernet0 = &gether;
+		ethernet0 = &avb;
 	};
 
 	chosen {
@@ -121,6 +122,7 @@
 &extalr_clk {
 	clock-frequency = <32768>;
 };
+
 /*
 &gether {
 	pinctrl-0 = <&gether_pins>;
@@ -144,11 +146,11 @@
     pinctrl-names = "default";
 
     renesas,no-ether-link;
-    phy-handle = <&phy1>;
+    phy-handle = <&phy0>;
     phy-mode = "rgmii-id";
     status = "okay";
 
-    phy1: ethernet-phy@0 {
+    phy0: ethernet-phy@0 {
        	rxc-skew-ps = <1500>;
        	reg = <0>;
        	interrupt-parent = <&gpio1>;
