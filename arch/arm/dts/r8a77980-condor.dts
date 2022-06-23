@@ -147,7 +147,7 @@
 
     renesas,no-ether-link;
     phy-handle = <&phy0>;
-    phy-mode = "rmii";
+    phy-mode = "rgmii-id";
     status = "okay";
 
     phy0: ethernet-phy@0 {
@@ -267,9 +267,9 @@
 		function = "gether";
 	};
 	
-	avb_pins: avb0 {
-        groups = "avb0_mdio", "avb0_rmii", "avb0_txcrefclk";
-        function = "avb0";	
+	avb_pins: avb {
+        groups = "avb_mdio", "avb_rgmii", "avb_txcrefclk";
+        function = "avb";	
 	};
 
 	i2c0_pins: i2c0 {
